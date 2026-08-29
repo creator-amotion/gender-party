@@ -343,6 +343,23 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
   background: var(--ink);
   color: var(--white);
 }
+.polaroid {
+  display: inline-block;
+  background: var(--white);
+  padding: 0.6rem 0.6rem 2.2rem;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  transform: rotate(-4deg);
+  margin-bottom: 2rem;
+}
+.polaroid img {
+  display: block;
+  width: 220px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 2px;
+}
 .footer p { line-height: 1.6; }
 .footer .pink { color: var(--pink); font-weight: 700; }
 .footer .blue { color: var(--blue); font-weight: 700; }
