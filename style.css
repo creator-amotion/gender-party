@@ -17,7 +17,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2 { font-weight: 900; }
+h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
 
 .btn {
   display: inline-block;
@@ -46,6 +46,14 @@ h1, h2 { font-weight: 900; }
   color: var(--ink);
 }
 .btn--outline:hover { background: var(--ink); color: var(--white); }
+
+.btn--soft-yellow {
+  background: rgba(240, 180, 41, 0.35);
+  border-color: rgba(240, 180, 41, 0.6);
+  color: #7a5610;
+  backdrop-filter: blur(2px);
+}
+.btn--soft-yellow:hover { background: rgba(240, 180, 41, 0.5); }
 
 /* Hero */
 .hero {
@@ -82,7 +90,7 @@ h1, h2 { font-weight: 900; }
   text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 .hero__title {
-  font-size: clamp(2.8rem, 9vw, 5rem);
+  font-size: clamp(3.4rem, 11vw, 5.8rem);
   line-height: 1;
   letter-spacing: -0.01em;
   text-shadow: 0 4px 20px rgba(0,0,0,0.35);
@@ -189,18 +197,15 @@ h1, h2 { font-weight: 900; }
 .countdown-section { background-image: url('assets/countdown-bg.png'); }
 .vote { background-image: url('assets/vote-bg.png'); }
 .section__title {
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
   margin-bottom: 0.6rem;
   max-width: 640px;
 }
-.script-heading {
-  font-family: 'Marck Script', cursive;
-  font-weight: 400;
-  font-size: clamp(2.2rem, 6vw, 3rem);
-}
 .text-pink { color: var(--pink); }
 .section__lead {
-  font-size: 1.05rem;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
   opacity: 0.85;
   max-width: 640px;
