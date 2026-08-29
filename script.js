@@ -21,6 +21,46 @@ function submitToGoogleForm(fields) {
   }).catch(() => {});
 }
 
+// Background tuner (open the site with ?tune=1 to use)
+if (new URLSearchParams(location.search).has("tune")) {
+  const panel = document.createElement("div");
+  panel.id = "bg-tuner";
+  panel.innerHTML = `
+    <strong>Настройка фона</strong>
+    <label>Масштаб: <span id="tune-scale-val">100</span>%</label>
+    <input type="range" id="tune-scale" min="30" max="400" value="100">
+    <label>Сдвиг по вертикали: <span id="tune-pos-val">0</span>%</label>
+    <input type="range" id="tune-pos" min="-100" max="100" value="0">
+    <button id="tune-copy">Скопировать значения</button>
+    <div id="bg-tuner-output"></div>
+  `;
+  document.body.appendChild(panel);
+
+  const root = document.documentElement.style;
+  const scaleInput = document.getElementById("tune-scale");
+  const posInput = document.getElementById("tune-pos");
+  const scaleVal = document.getElementById("tune-scale-val");
+  const posVal = document.getElementById("tune-pos-val");
+  const output = document.getElementById("bg-tuner-output");
+
+  function updateTuner() {
+    scaleVal.textContent = scaleInput.value;
+    posVal.textContent = posInput.value;
+    root.setProperty("--bg-size", `${scaleInput.value}%`);
+    root.setProperty("--bg-pos-y", `${posInput.value}%`);
+    output.textContent = `Масштаб: ${scaleInput.value}%, Сдвиг: ${posInput.value}%`;
+  }
+  scaleInput.addEventListener("input", updateTuner);
+  posInput.addEventListener("input", updateTuner);
+  updateTuner();
+
+  document.getElementById("tune-copy").addEventListener("click", () => {
+    const text = `Масштаб: ${scaleInput.value}%, Сдвиг: ${posInput.value}%`;
+    navigator.clipboard?.writeText(text).catch(() => {});
+    alert("Скопировано! Пришлите эти цифры мне в чат — " + text);
+  });
+}
+
 // Balloons launch on scroll past hero
 const heroEl = document.querySelector(".hero");
 const heroBalloons = document.getElementById("hero-balloons");

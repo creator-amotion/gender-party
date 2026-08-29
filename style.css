@@ -6,6 +6,8 @@
   --blue: #6fa8d6;
   --ink: #201f1d;
   --white: #fffdf9;
+  --bg-size: 100%;
+  --bg-pos-y: 0%;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,9 +18,47 @@ body {
   background-color: var(--cream);
   background-image: url('assets/newpattern.png');
   background-repeat: repeat-y;
-  background-size: 100% auto;
-  background-position: top center;
+  background-size: var(--bg-size) auto;
+  background-position: center var(--bg-pos-y);
   overflow-x: hidden;
+}
+
+/* Background tuner panel (only shown at ?tune=1) */
+#bg-tuner {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 230px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  z-index: 1000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+#bg-tuner strong { display: block; margin-bottom: 0.6rem; }
+#bg-tuner label { display: block; margin: 0.7rem 0 0.2rem; }
+#bg-tuner input[type="range"] { width: 100%; }
+#bg-tuner button {
+  margin-top: 0.7rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+}
+#bg-tuner-output {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 0.5rem;
+  word-break: break-word;
 }
 
 h1, h2 { font-weight: 900; }
