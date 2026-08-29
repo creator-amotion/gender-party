@@ -72,14 +72,15 @@ voteCards.forEach((card) => {
 // RSVP
 const rsvpButtons = document.querySelectorAll("[data-rsvp]");
 const rsvpThanks = document.getElementById("rsvp-thanks");
+const rsvpThanksMain = document.getElementById("rsvp-thanks-main");
 const nameInput = document.getElementById("rsvp-name");
 const RSVP_KEY = "genderparty_rsvp";
 
 function showRsvpThanks(answer) {
   rsvpThanks.hidden = false;
-  rsvpThanks.textContent = answer === "Да"
-    ? "Ура, ждём тебя! 🎉"
-    : "Жаль, что не получится — обнимаем!";
+  rsvpThanksMain.textContent = answer === "Да"
+    ? "Ура, ждём тебя! 🎉🎊🥳"
+    : "Жаль, что не получится — обнимаем! 😢💔";
 }
 
 const savedRsvp = localStorage.getItem(RSVP_KEY);

@@ -331,9 +331,16 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
 }
 .rsvp__thanks {
   margin-top: 1.5rem;
-  font-weight: 700;
-  font-size: 1.1rem;
   max-width: 640px;
+}
+.rsvp__thanks-main {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.rsvp__thanks-sub {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 /* Footer */
