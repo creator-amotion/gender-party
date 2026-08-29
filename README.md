@@ -1,40 +1,53 @@
 # Gender Party — Артём + Лиза
 
-## 1. Фото и фон
+Сайт опубликован здесь: https://creator-amotion.github.io/gender-party/
 
-Положи в папку `assets/` файлы с такими именами:
+## Ответы (голоса и «Приду»)
 
-- `hero-bg.jpg` — фон обложки (фото озера/скамейки)
-- `pattern-bg.jpg` — декоративный кремовый фон с шариками и мишками
-- `boy.jpg` — фото мальчика для голосования
-- `girl.jpg` — фото девочки для голосования
+Данные принимает Google Apps Script Web App, привязанный к таблице
+`Gender Party — Ответы`. URL приёмника прописан в `script.js`
+(`FORM_CONFIG.actionUrl`).
 
-## 2. Google Форма (хранение голосов и «Приду»)
+Если понадобится пересоздать приёмник (например, если ссылка перестала
+работать):
 
-1. Зайди на forms.google.com → создай новую форму.
-2. Название: `Gender Party — Артём и Лиза`.
-3. Добавь три вопроса, **у каждого выключи «Обязательный»**:
-   - `Имя` — тип «Текст (короткий ответ)»
-   - `Голос` — тип «Один из списка», варианты: `Мальчик`, `Девочка`
-   - `Придёшь?` — тип «Один из списка», варианты: `Приду`, `Не смогу`
-4. Нажми «Отправить» → вкладка со ссылкой 🔗 → скопируй ссылку вида
-   `https://docs.google.com/forms/d/e/XXXXXXXX/viewform`.
-5. Пришли эту ссылку мне в чат — я автоматически найду нужные технические
-   ID полей и допишу `script.js`, ничего вручную делать не придётся.
-6. Ответы будут падать в Google Таблицу: в форме → вкладка «Ответы» →
-   значок таблицы → «Создать таблицу».
+1. В таблице-приёмнике: **Расширения → Apps Script**
+2. Код должен быть:
+   ```javascript
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var data = e.parameter;
+     sheet.appendRow([new Date(), data.name || "", data.vote || "", data.attend || ""]);
+     return ContentService.createTextOutput(JSON.stringify({status: "ok"}))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+3. **Deploy → New deployment** → тип **Web app** → Execute as: **Me**,
+   Who has access: **Anyone** → Deploy → авторизовать свой аккаунт.
+4. Скопировать ссылку (заканчивается на `/exec`) и вставить в
+   `script.js` → `FORM_CONFIG.actionUrl`.
 
-## 3. Публикация на GitHub Pages
+Раньше использовалась Google Форма напрямую, но Google стал блокировать
+такие анонимные отправки (требует токен сессии, который сайт не может
+получить из-за CORS) — поэтому теперь используется Apps Script.
+
+## Фото и фон
+
+Файлы лежат в `assets/`:
+
+- `hero-bg.jpeg` — фон обложки
+- `countdown-bg.png`, `details-bg.png`, `vote-bg.png`, `rsvp-bg.png` —
+  фон каждого раздела (подобраны по смыслу иконок на них)
+- `boy.png`, `girl.png` — фото для голосования
+- `redball.png`, `blueball.png` — летящие шарики на обложке
+- `couple.jpeg` — фото пары в подвале сайта
+
+## Публикация изменений
 
 ```bash
-git init
-git add .
-git commit -m "Gender party invitation site"
-git branch -M main
-git remote add origin https://github.com/<твой-логин>/gender-party.git
-git push -u origin main
+git add -A
+git commit -m "..."
+git push
 ```
 
-Дальше на GitHub: Settings → Pages → Source → `main` / `/ (root)` → Save.
-Через пару минут сайт будет доступен по адресу
-`https://<твой-логин>.github.io/gender-party/`.
+GitHub Pages сам обновит сайт через 1-2 минуты после пуша в `main`.
