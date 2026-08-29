@@ -32,7 +32,7 @@ const balloonObserver = new IntersectionObserver(
       heroBalloons.classList.remove("launch");
     }
   },
-  { threshold: 0 }
+  { threshold: 0, rootMargin: "-50% 0px 0px 0px" }
 );
 balloonObserver.observe(heroEl);
 
