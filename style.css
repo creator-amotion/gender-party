@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
+h1, h2 { font-family: 'Underdog', cursive; font-weight: 400; }
 
 .btn {
   display: inline-block;
@@ -274,7 +274,7 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
 }
 .details__label {
   display: block;
-  font-family: 'Marck Script', cursive;
+  font-family: 'Underdog', cursive;
   font-size: 1.7rem;
   color: var(--sage);
 }
@@ -314,12 +314,27 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
   align-items: center;
   gap: 0.6rem;
 }
-.vote__card img {
+.vote__photo-wrap {
+  position: relative;
+  width: 100%;
+}
+.vote__photo {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 16px;
 }
+.vote__flower {
+  position: absolute;
+  width: 30%;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+.vote__flower--tl { top: -12%; left: -12%; transform: rotate(-18deg); }
+.vote__flower--br { bottom: -12%; right: -12%; transform: rotate(22deg); }
+.vote__flower--blend { mix-blend-mode: multiply; filter: none; }
 .vote__card--boy:hover, .vote__card--boy.selected { border-color: var(--blue); }
 .vote__card--girl:hover, .vote__card--girl.selected { border-color: var(--pink); }
 .vote__card:hover { transform: translateY(-4px); }

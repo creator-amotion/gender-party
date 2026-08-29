@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://creator-amotion.github.io/gender-party/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Marck+Script&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Marck+Script&family=Underdog&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -82,11 +82,19 @@
 
   <div class="vote__cards">
     <button class="vote__card vote__card--boy" data-vote="Мальчик">
-      <img src="assets/boy.png" alt="Мальчик">
+      <div class="vote__photo-wrap">
+        <img src="assets/boy.png" alt="Мальчик" class="vote__photo">
+        <img src="assets/boyflower.png" alt="" class="vote__flower vote__flower--tl">
+        <img src="assets/boyflower.png" alt="" class="vote__flower vote__flower--br">
+      </div>
       <span>Мальчик</span>
     </button>
     <button class="vote__card vote__card--girl" data-vote="Девочка">
-      <img src="assets/girl.png" alt="Девочка">
+      <div class="vote__photo-wrap">
+        <img src="assets/girl.png" alt="Девочка" class="vote__photo">
+        <img src="assets/girlflower.jpeg" alt="" class="vote__flower vote__flower--tl vote__flower--blend">
+        <img src="assets/girlflower.jpeg" alt="" class="vote__flower vote__flower--br vote__flower--blend">
+      </div>
       <span class="text-pink">Девочка</span>
     </button>
   </div>
