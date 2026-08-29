@@ -83,12 +83,52 @@ function showRsvpThanks(answer) {
     : "Жаль, что не получится — обнимаем! 😢💔";
 }
 
+function burstConfetti(x, y) {
+  const colors = ["#e6483c", "#f0b429", "#f2a9b8", "#6fa8d6", "#fffdf9"];
+  for (let i = 0; i < 26; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    piece.style.left = x + "px";
+    piece.style.top = y + "px";
+    piece.style.background = colors[i % colors.length];
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 70 + Math.random() * 130;
+    piece.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+    piece.style.setProperty("--dy", Math.sin(angle) * dist - 60 + "px");
+    piece.style.setProperty("--rot", Math.random() * 720 - 360 + "deg");
+    document.body.appendChild(piece);
+    piece.addEventListener("animationend", () => piece.remove());
+  }
+}
+
+function burstSadEmoji(x, y) {
+  const emojis = ["😢", "💔", "😞"];
+  for (let i = 0; i < 9; i++) {
+    const piece = document.createElement("span");
+    piece.className = "sad-piece";
+    piece.textContent = emojis[i % emojis.length];
+    piece.style.left = x + (Math.random() * 90 - 45) + "px";
+    piece.style.top = y + "px";
+    piece.style.setProperty("--fall", 70 + Math.random() * 60 + "px");
+    document.body.appendChild(piece);
+    piece.addEventListener("animationend", () => piece.remove());
+  }
+}
+
 const savedRsvp = localStorage.getItem(RSVP_KEY);
 if (savedRsvp) showRsvpThanks(savedRsvp);
 
 rsvpButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const answer = btn.dataset.rsvp;
+    const rect = btn.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+    if (answer === "Да") {
+      burstConfetti(originX, originY);
+    } else {
+      burstSadEmoji(originX, originY);
+    }
     submitToGoogleForm({
       attend: answer,
       name: nameInput.value.trim(),

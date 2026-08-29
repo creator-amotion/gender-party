@@ -162,6 +162,31 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
   100% { opacity: 0; transform: translateY(-620px) translateX(var(--drift, 0px)) rotate(var(--rot, 10deg)); }
 }
 
+.confetti-piece {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2000;
+  animation: confettiBurst 0.9s ease-out forwards;
+}
+@keyframes confettiBurst {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0; }
+}
+.sad-piece {
+  position: fixed;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 2000;
+  animation: sadFall 1.3s ease-in forwards;
+}
+@keyframes sadFall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(var(--fall)); opacity: 0; }
+}
+
 /* Sections */
 .section {
   padding: 4rem 1.5rem;
