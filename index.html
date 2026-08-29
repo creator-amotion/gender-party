@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Артём + Лиза — Gender Party</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="bubble">He or She?</div>
+    <h1 class="hero__title">Артём<span class="plus">+</span>Лиза</h1>
+    <p class="hero__subtitle">Gender Party</p>
+    <p class="hero__tag">+ 2 года семьи</p>
+    <p class="hero__date">27 сентября 2026 · 14:00</p>
+    <a href="#rsvp" class="btn btn--primary">Приду 🎉</a>
+  </div>
+  <div class="hero__scroll">↓</div>
+</section>
+
+<section class="section section--pattern countdown-section">
+  <h2 class="section__title">До праздника осталось</h2>
+  <div class="countdown" id="countdown">
+    <div class="countdown__item"><span id="cd-days">00</span><small>дней</small></div>
+    <div class="countdown__item"><span id="cd-hours">00</span><small>часов</small></div>
+    <div class="countdown__item"><span id="cd-mins">00</span><small>минут</small></div>
+    <div class="countdown__item"><span id="cd-secs">00</span><small>секунд</small></div>
+  </div>
+</section>
+
+<section class="section details">
+  <h2 class="section__title">Когда и где</h2>
+  <div class="details__grid">
+    <div class="details__card">
+      <span class="details__icon">📅</span>
+      <strong>Дата</strong>
+      <p>27 сентября 2026</p>
+    </div>
+    <div class="details__card">
+      <span class="details__icon">🕑</span>
+      <strong>Время</strong>
+      <p>14:00</p>
+    </div>
+    <div class="details__card">
+      <span class="details__icon">📍</span>
+      <strong>Место</strong>
+      <p>СНТ Изыскатель, 149</p>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?ll=44.145423%2C48.601341&z=16&pt=44.145423,48.601341,pm2rdm"
+      width="100%" height="380" frameborder="0" loading="lazy"
+      title="Карта места проведения"></iframe>
+  </div>
+  <a href="https://yandex.com/maps/-/CTHbu-2V" target="_blank" rel="noopener" class="btn btn--outline">Построить маршрут</a>
+</section>
+
+<section class="section section--pattern vote" id="vote">
+  <h2 class="section__title">Мальчик или девочка?</h2>
+  <p class="section__lead">Проголосуй, кого, по-твоему, мы ждём!</p>
+
+  <div class="vote__cards">
+    <button class="vote__card vote__card--boy" data-vote="Мальчик">
+      <img src="assets/boy.png" alt="Мальчик">
+      <span>Мальчик</span>
+    </button>
+    <button class="vote__card vote__card--girl" data-vote="Девочка">
+      <img src="assets/girl.png" alt="Девочка">
+      <span>Девочка</span>
+    </button>
+  </div>
+
+  <p class="vote__thanks" id="vote-thanks" hidden>Спасибо за голос! Скоро узнаем 💙💗</p>
+</section>
+
+<section class="section rsvp" id="rsvp">
+  <h2 class="section__title">Ты придёшь?</h2>
+  <p class="section__lead">Будем рады видеть тебя на нашем празднике!</p>
+
+  <form class="rsvp__form" id="rsvp-form">
+    <input type="text" id="rsvp-name" placeholder="Как тебя зовут?" autocomplete="name">
+    <div class="rsvp__buttons">
+      <button type="button" class="btn btn--primary" data-rsvp="Да">Приду 🎉</button>
+      <button type="button" class="btn btn--outline" data-rsvp="Нет">Не смогу</button>
+    </div>
+  </form>
+
+  <p class="rsvp__thanks" id="rsvp-thanks" hidden></p>
+</section>
+
+<footer class="footer">
+  <p>Будут сюрпризы, радость, тёплые объятия<br>и, возможно, <span class="pink">розовый</span> или <span class="blue">голубой</span>!</p>
+  <p class="footer__names">Ждём именно тебя! — Артём и Лиза</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
