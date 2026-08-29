@@ -20,6 +20,16 @@ body {
 
 h1, h2 { font-family: 'Underdog', cursive; font-weight: 400; }
 
+.section__title,
+.section__lead,
+.details__label,
+.details__value,
+.rsvp__thanks-main,
+.rsvp__thanks-sub,
+.vote__thanks {
+  text-shadow: 0 1px 3px rgba(255,255,255,0.75), 0 2px 10px rgba(255,255,255,0.55);
+}
+
 .btn {
   display: inline-block;
   padding: 0.9rem 2.2rem;
@@ -207,8 +217,8 @@ h1, h2 { font-family: 'Underdog', cursive; font-weight: 400; }
   justify-content: center;
   min-height: 65vh;
 }
-.details { background-image: url('assets/grass-bg.jpg'); }
-.rsvp { background-image: url('assets/grass-bg.jpg'); }
+.details { background-image: url('assets/grass-flowers-bg.jpg'); }
+.rsvp { background-image: url('assets/grass-flowers-bg.jpg'); }
 .details__grid, .map-wrap, .rsvp__form { max-width: 640px; width: 100%; }
 .section--pattern {
   position: relative;
@@ -222,22 +232,12 @@ h1, h2 { font-family: 'Underdog', cursive; font-weight: 400; }
   justify-content: center;
   min-height: 65vh;
 }
-.countdown-section { background-image: url('assets/grass-bg.jpg'); }
-.vote { background-image: url('assets/grass-bg.jpg'); }
+.countdown-section { background-image: url('assets/meadow-trees-bg.jpg'); background-position: center 25%; }
+.vote { background-image: url('assets/meadow-trees-bg.jpg'); background-position: center 25%; }
 
-.tree-decor {
-  position: absolute;
-  bottom: 0;
-  width: clamp(70px, 14vw, 130px);
-  pointer-events: none;
-  z-index: 1;
-  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.15));
-}
-.tree-decor--left { left: 2%; }
-.tree-decor--right { right: 2%; transform: scaleX(-1); }
-.section--pattern > :not(.tree-decor),
-.details > :not(.tree-decor),
-.rsvp > :not(.tree-decor) {
+.section--pattern > *,
+.details > *,
+.rsvp > * {
   position: relative;
   z-index: 2;
 }
