@@ -338,23 +338,27 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
 
 /* Footer */
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 3rem 1.5rem 4rem;
   background: var(--ink);
   color: var(--white);
 }
 .polaroid {
-  display: inline-block;
+  align-self: center;
+  margin-left: 18%;
   background: var(--white);
-  padding: 0.6rem 0.6rem 2.2rem;
+  padding: 0.5rem 0.5rem 1.8rem;
   border-radius: 4px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
   transform: rotate(-4deg);
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 .polaroid img {
   display: block;
-  width: 220px;
+  width: clamp(120px, 38vw, 200px);
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 35%;
