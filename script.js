@@ -1,18 +1,11 @@
 const FORM_CONFIG = {
-  actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfiiVgu0U4aq8luX6M6il6ghbhgYIxokfMzA_OxUaliqNPaSA/formResponse",
-  entryName: "entry.559352220",
-  entryAttend: "entry.877086558",
-  entryVote: "entry.2118111400",
+  actionUrl: "https://script.google.com/macros/s/AKfycbxMqb5PsrxtYG6Tjj-VlKnuVbDCnUNM3QVvRb48Mseb4U9HkjBQuHo1FfbkN3LSNeCL/exec",
 };
 
 function submitToGoogleForm(fields) {
-  if (FORM_CONFIG.actionUrl.startsWith("TODO")) {
-    console.warn("Google Форма ещё не подключена — см. README.md");
-    return;
-  }
   const data = new FormData();
-  Object.entries(fields).forEach(([entry, value]) => {
-    if (value) data.append(entry, value);
+  Object.entries(fields).forEach(([key, value]) => {
+    if (value) data.append(key, value);
   });
   fetch(FORM_CONFIG.actionUrl, {
     method: "POST",
@@ -70,7 +63,7 @@ voteCards.forEach((card) => {
     const choice = card.dataset.vote;
     voteCards.forEach((c) => c.classList.remove("selected"));
     card.classList.add("selected");
-    submitToGoogleForm({ [FORM_CONFIG.entryVote]: choice });
+    submitToGoogleForm({ vote: choice });
     localStorage.setItem(VOTE_KEY, choice);
     voteThanks.hidden = false;
   });
@@ -96,8 +89,8 @@ rsvpButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const answer = btn.dataset.rsvp;
     submitToGoogleForm({
-      [FORM_CONFIG.entryAttend]: answer,
-      [FORM_CONFIG.entryName]: nameInput.value.trim(),
+      attend: answer,
+      name: nameInput.value.trim(),
     });
     localStorage.setItem(RSVP_KEY, answer);
     showRsvpThanks(answer);
