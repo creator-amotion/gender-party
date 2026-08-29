@@ -21,9 +21,24 @@ function submitToGoogleForm(fields) {
   }).catch(() => {});
 }
 
+// Balloons launch on scroll past hero
+const heroEl = document.querySelector(".hero");
+const heroBalloons = document.getElementById("hero-balloons");
+const balloonObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+      heroBalloons.classList.add("launch");
+    } else if (entry.isIntersecting) {
+      heroBalloons.classList.remove("launch");
+    }
+  },
+  { threshold: 0 }
+);
+balloonObserver.observe(heroEl);
+
 // Countdown
 function updateCountdown() {
-  const target = new Date("2026-09-27T14:00:00+03:00").getTime();
+  const target = new Date("2026-09-27T13:00:00+03:00").getTime();
   const now = Date.now();
   const diff = Math.max(0, target - now);
 
