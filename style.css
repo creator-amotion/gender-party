@@ -233,14 +233,50 @@ h1, h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; }
   justify-content: center;
   min-height: 65vh;
 }
-.countdown-section { background-image: url('assets/meadow-trees-bg.jpg'); background-position: center 25%; }
+.countdown-section { background-image: url('assets/grass-flowers-bg.jpg'); }
 .vote { background-image: url('assets/meadow-trees-bg.jpg'); background-position: center 25%; }
+.envelope-section { background-image: url('assets/meadow-trees-bg.jpg'); background-position: center 25%; }
 
 .section--pattern > *,
 .details > *,
 .rsvp > * {
   position: relative;
   z-index: 2;
+}
+
+/* Envelope */
+.envelope {
+  font-size: 5rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.3));
+  transition: transform 0.2s ease;
+  animation: envelopeWiggle 2.4s ease-in-out infinite;
+}
+.envelope:hover { transform: scale(1.08); }
+.envelope.opened { animation: none; transform: scale(0.9); }
+@keyframes envelopeWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
+}
+.envelope__letter {
+  margin-top: 1.5rem;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 1.5rem 1.8rem;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  font-weight: 700;
+  font-size: 1.1rem;
+  animation: letterPop 0.4s ease;
+}
+.envelope__letter p + p { margin-top: 0.6rem; }
+@keyframes letterPop {
+  0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 .section__title {
   font-size: clamp(2.6rem, 7vw, 3.6rem);

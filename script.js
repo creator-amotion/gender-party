@@ -69,6 +69,15 @@ voteCards.forEach((card) => {
   });
 });
 
+// Envelope teaser
+const envelopeBtn = document.getElementById("envelope-btn");
+const envelopeLetter = document.getElementById("envelope-letter");
+envelopeBtn.addEventListener("click", () => {
+  envelopeBtn.classList.add("opened");
+  envelopeBtn.textContent = "💌";
+  envelopeLetter.hidden = false;
+});
+
 // RSVP
 const rsvpButtons = document.querySelectorAll("[data-rsvp]");
 const rsvpThanks = document.getElementById("rsvp-thanks");
@@ -80,7 +89,7 @@ function showRsvpThanks(answer) {
   rsvpThanks.hidden = false;
   rsvpThanksMain.textContent = answer === "Да"
     ? "Ура, ждём тебя! 🎉🎊🥳"
-    : "Жаль, что не получится — обнимаем! 😢💔";
+    : "Очень жаль, тебе не узнать ответ на главный вопрос 😢";
 }
 
 function burstConfetti(x, y) {
