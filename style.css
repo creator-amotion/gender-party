@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
+h1, h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; }
 
 .section__title,
 .section__lead,
@@ -252,9 +252,9 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
   text-shadow: 0 1px 3px rgba(255,255,255,0.9), 0 2px 8px rgba(255,255,255,0.8);
 }
 .section__lead {
-  font-family: 'Caveat', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   margin-bottom: 2rem;
   opacity: 0.85;
   max-width: 640px;
@@ -297,8 +297,11 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
 }
 .details__label {
   display: block;
-  font-family: 'Marck Script', cursive;
-  font-size: 1.7rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--sage);
 }
 .details__value {
@@ -357,14 +360,13 @@ h1, h2 { font-family: 'Marck Script', cursive; font-weight: 400; }
   height: 68%;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
   z-index: 2;
   transition: box-shadow 0.15s ease;
 }
 .vote__card--boy:hover .vote__photo,
-.vote__card--boy.selected .vote__photo { box-shadow: 0 0 0 4px var(--blue), 0 4px 14px rgba(0,0,0,0.25); }
+.vote__card--boy.selected .vote__photo { box-shadow: 0 0 0 3px var(--blue); }
 .vote__card--girl:hover .vote__photo,
-.vote__card--girl.selected .vote__photo { box-shadow: 0 0 0 4px var(--pink), 0 4px 14px rgba(0,0,0,0.25); }
+.vote__card--girl.selected .vote__photo { box-shadow: 0 0 0 3px var(--pink); }
 .vote__card:hover { transform: translateY(-4px); }
 
 .vote__thanks {
